@@ -9,7 +9,6 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<!-- Google Fonts for the rich text editor contents -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -40,7 +39,6 @@ margin: auto;
 padding: 50px 25px;
 }
 
-/* HEADER SECTION */
 .header-section {
 display: flex;
 align-items: center;
@@ -80,7 +78,6 @@ line-height: 1.5;
 margin: 0;
 }
 
-/* EDITOR WRAPPER */
 .editor-card {
 background: var(--surface);
 border: 1px solid var(--border);
@@ -121,7 +118,6 @@ transition: border-color 0.2s;
 border-color: var(--muted);
 }
 
-/* Side-by-side row for Date & Time inputs */
 .form-row {
 display: flex;
 gap: 15px;
@@ -164,7 +160,6 @@ white-space: nowrap;
 margin-left: 8px;
 }
 
-/* FORMATTING TOOLBAR */
 .toolbar {
 display: flex;
 flex-wrap: wrap;
@@ -209,7 +204,6 @@ height: 14px;
 fill: currentColor;
 }
 
-/* CONTENT EDITABLE AREA */
 .visual-canvas {
 width: 100%;
 min-height: 350px;
@@ -225,7 +219,6 @@ outline: none;
 overflow-y: auto;
 }
 
-/* Image Wrapper Block containing Image, Delete Button, and locked caption */
 .image-caption-block {
 position: relative;
 display: block;
@@ -253,7 +246,6 @@ display: block;
 user-select: text;
 }
 
-/* White Circle Delete Bin Button */
 .delete-img-btn {
 position: absolute;
 top: 12px;
@@ -326,7 +318,6 @@ margin-bottom: 10px;
 margin-bottom: 15px;
 }
 
-/* GENERATE / ACTIONS PANEL */
 .actions-bar {
 display: flex;
 gap: 15px;
@@ -363,7 +354,6 @@ background: var(--surface);
 opacity: 1;
 }
 
-/* OUTPUT MODAL / SECTION */
 .output-section {
 margin-top: 40px;
 display: none;
@@ -399,7 +389,6 @@ line-height: 1.5;
 max-height: 400px;
 }
 
-/* FIXED FOOTER */
 footer {
 position: fixed;
 bottom: 0;
@@ -492,7 +481,6 @@ padding: 12px 15px;
 <div class="form-group">
 <label>Visual Document Content</label>
 
-<!-- Formatting Toolbar -->
 <div class="toolbar">
 <button class="tool-btn" id="btn-bold" onclick="formatDoc('bold')" title="Bold"><b>B</b></button>
 <button class="tool-btn" id="btn-italic" onclick="formatDoc('italic')" title="Italic"><i>I</i></button>
@@ -507,7 +495,6 @@ padding: 12px 15px;
 <button class="tool-btn" onclick="formatDoc('removeFormat')" title="Clear Formatting">Clear</button>
 </div>
 
-<!-- Editable Canvas -->
 <div id="editorCanvas" class="visual-canvas" contenteditable="true" onclick="updateToolbarState()" placeholder="Start writing your thoughts here...">
 <h2>Introduction</h2>
 <p>Type your notes, ideas, or project logs here. Select text to style it, or insert images seamlessly!</p>
@@ -523,7 +510,6 @@ Generate Standalone HTML
 </div>
 </div>
 
-<!-- Output Code Box -->
 <div class="output-section" id="outputSection">
 <div class="output-header">
 <h3>Generated HTML Page Code</h3>
@@ -543,10 +529,8 @@ Generate Standalone HTML
 </footer>
 
 <script>
-// Auto-fill date and time fields with current UTC+12 values on load
 window.addEventListener('DOMContentLoaded', () => {
 const now = new Date();
-// Format UTC+12 date/time approximation or adjust based on system time
 const year = now.getFullYear();
 const month = String(now.getMonth() + 1).padStart(2, '0');
 const day = String(now.getDate()).padStart(2, '0');
@@ -638,7 +622,6 @@ const publishString = `Published on ${dateInput} at ${timeInput} UTC+12 by Oscar
 
 const canvasClone = document.getElementById("editorCanvas").cloneNode(true);
 
-// Convert each image-caption block wrapper into individual clean elements for production export
 canvasClone.querySelectorAll('.image-caption-block').forEach(block => {
 const img = block.querySelector('img');
 const input = block.querySelector('input');
@@ -690,14 +673,12 @@ font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 padding-bottom: 80px;
 }
 
-/* MAIN CONTAINER */
 .container {
 max-width:900px;
 margin:auto;
 padding:60px 25px;
 }
 
-/* HEADER SECTION (Title & Back Button) */
 .header-section {
 display: flex;
 align-items: center;
@@ -722,7 +703,6 @@ white-space: nowrap;
 opacity: 0.8;
 }
 
-/* BACK LINK (In-line with header title on all screens) */
 .back {
 color:var(--muted);
 cursor:pointer;
@@ -737,7 +717,6 @@ white-space: nowrap;
 color:var(--text);
 }
 
-/* POST HEADER WITH DIVIDER */
 .post-header {
 margin-bottom:40px;
 }
@@ -763,7 +742,6 @@ background:var(--border);
 margin-top:20px;
 }
 
-/* BODY CONTENT */
 .post-body p,
 .post-body li {
 font-size:18px;
@@ -779,7 +757,6 @@ margin:20px 0 6px 0;
 display: block;
 }
 
-/* FIXED FOOTER */
 footer {
 position: fixed;
 bottom: 0;
