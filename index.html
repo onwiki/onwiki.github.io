@@ -39,6 +39,11 @@ padding-bottom: 80px;
 max-width: 900px;
 margin: auto;
 padding: 60px 25px;
+transition: max-width 0.3s ease;
+}
+
+.container.collage-expanded {
+max-width: 1200px;
 }
 
 .header-section {
@@ -48,6 +53,12 @@ justify-content: space-between;
 gap: 20px;
 margin-bottom: 25px;
 flex-wrap: wrap;
+}
+
+.header-right {
+display: flex;
+align-items: center;
+gap: 10px;
 }
 
 .header-title {
@@ -88,6 +99,25 @@ font-size: 14px;
 
 .search-box input::placeholder {
 color: var(--muted);
+}
+
+.collage-icon-btn {
+height: 36px;
+padding: 0 12px;
+border: 1px solid var(--border);
+border-radius: 8px;
+color: var(--muted);
+background: var(--bg);
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: color 0.2s, border-color 0.2s;
+}
+
+.collage-icon-btn:hover {
+color: var(--text);
+border-color: var(--text);
 }
 
 .shortcut {
@@ -187,6 +217,76 @@ padding: 20px 0;
 margin-bottom: 45px;
 }
 
+.pinterest-grid {
+column-count: 4;
+column-gap: 16px;
+width: 100%;
+}
+
+@media(max-width: 1100px) {
+.pinterest-grid { column-count: 3; }
+}
+
+@media(max-width: 800px) {
+.pinterest-grid { column-count: 2; }
+}
+
+@media(max-width: 500px) {
+.pinterest-grid { column-count: 1; }
+}
+
+.collage-item {
+break-inside: avoid;
+margin-bottom: 16px;
+position: relative;
+border-radius: 16px;
+overflow: hidden;
+cursor: pointer;
+background: var(--bg);
+border: 1px solid var(--border);
+}
+
+.collage-item img {
+width: 100%;
+height: auto;
+display: block;
+border-radius: 16px;
+transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.collage-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.85);
+color: #fff;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px;
+text-align: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+border-radius: 16px;
+box-sizing: border-box;
+font-size: 13px;
+font-family: "IBM Plex Mono", monospace;
+}
+
+.collage-item:hover .collage-overlay,
+.collage-item.touch-active .collage-overlay {
+opacity: 1;
+}
+
+.collage-item:hover img,
+.collage-item.touch-active img {
+transform: scale(1.03);
+opacity: 0.3;
+}
+
 footer {
 position: fixed;
 bottom: 0;
@@ -226,8 +326,11 @@ flex-direction: column;
 align-items: flex-start;
 gap: 15px;
 }
-.search-box {
+.header-right {
 width: 100%;
+}
+.search-box {
+flex-grow: 1;
 }
 .search-box input {
 width: 100%;
@@ -262,24 +365,36 @@ padding: 12px 15px;
 
 <body>
 
-<div class="container">
+<div class="container" id="main-container">
 
 <div class="header-section">
 <a href="index.html" class="header-title">OnWiki Journal</a>
+<div class="header-right">
+<button id="collage-toggle-btn" class="collage-icon-btn" title="Toggle Visual Collage" aria-label="Toggle Visual Collage">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="3" width="7" height="7"></rect>
+<rect x="14" y="3" width="7" height="7"></rect>
+<rect x="14" y="14" width="7" height="7"></rect>
+<rect x="3" y="14" width="7" height="7"></rect>
+</svg>
+</button>
 <div class="search-box" id="searchBox">
 <svg width="15" height="15" viewBox="0 0 24 24">
 <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
 <line x1="16" y1="16" x2="22" y2="22" stroke="currentColor" stroke-width="2"/>
 </svg>
-<input id="search" placeholder="Search notes..." oninput="filterPosts()">
+<input id="search" placeholder="Search notes..." oninput="handleSearch()">
 <span class="shortcut" id="shortcut">⌘ K</span>
+</div>
 </div>
 </div>
 
 <section class="intro">
-<p>Notes, projects, experiments, and things I've learned.</p>
+<p>Notes, projects, experiences, and things I've learned.</p>
 </section>
 
+<!-- normal content -->
+<div id="normal-content">
 <section id="pinned-section">
 <div class="section-heading">
 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="17" x2="12" y2="22"></line><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-.89 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path></svg>
@@ -292,6 +407,13 @@ Pinned Post
 <div class="section-heading">Latest Posts</div>
 <div id="posts"></div>
 </section>
+</div>
+
+<!-- collage view -->
+<div id="collage-view" style="display: none;">
+<div class="section-heading">Visual Collage</div>
+<div id="pinterest-grid" class="pinterest-grid"></div>
+</div>
 
 </div>
 
@@ -342,6 +464,33 @@ file: "posts/the-VPs.html",
 title: "The VP's (Five P's to Fear Death)",
 date: "2024-10-11 20:44",
 image: "images/moa.jpg"
+}
+];
+
+const collageImages = [
+{
+url: "images/about.jpg",
+caption: "About this Journal - Setup snapshot"
+},
+{
+url: "images/surveillance.jpg",
+caption: "Surveillance Tech notes reference"
+},
+{
+url: "images/cyberdeck.png",
+caption: "Cyberdeck build configuration & design"
+},
+{
+url: "images/deamazon.png",
+caption: "DeAmazoning hardware layout"
+},
+{
+url: "images/3p.png",
+caption: "Planet & Population Data Notes"
+},
+{
+url: "images/moa.jpg",
+caption: "Archive field view"
 }
 ];
 
@@ -402,24 +551,99 @@ area.appendChild(item);
 }
 }
 
-function filterPosts() {
+// render collage
+function renderCollage(filteredImages = collageImages, query = "") {
+const gridContainer = document.getElementById("pinterest-grid");
+if (!gridContainer) return;
+
+if (filteredImages.length === 0) {
+gridContainer.innerHTML = '<div class="no-results">No collage images found matching your search.</div>';
+return;
+}
+
+gridContainer.innerHTML = filteredImages.map(item => {
+let displayCaption = item.caption;
+if (query.length > 0) {
+const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+displayCaption = item.caption.replace(regex, '<span class="highlight">$1</span>');
+}
+
+return `
+<div class="collage-item">
+<img src="${item.url}" alt="${item.caption}" loading="lazy">
+<div class="collage-overlay">
+<p>${displayCaption}</p>
+</div>
+</div>
+`;
+}).join("");
+
+const items = document.querySelectorAll(".collage-item");
+items.forEach(item => {
+item.addEventListener("touchstart", function(e) {
+if (!this.classList.contains("touch-active")) {
+e.preventDefault();
+items.forEach(i => i.classList.remove("touch-active"));
+this.classList.add("touch-active");
+}
+});
+});
+}
+
+function handleSearch() {
 const query = document.getElementById("search").value.trim();
 const lowerQuery = query.toLowerCase();
 
-const filtered = posts.filter(post => {
+if (isCollageActive) {
+const filteredCollage = collageImages.filter(img => img.caption.toLowerCase().includes(lowerQuery));
+renderCollage(filteredCollage, query);
+} else {
+const filteredPosts = posts.filter(post => {
 const matchesTitle = post.title.toLowerCase().includes(lowerQuery);
 const matchesDate = post.date.toLowerCase().includes(lowerQuery);
 return matchesTitle || matchesDate;
 });
-
-renderPosts(filtered, query);
+renderPosts(filteredPosts, query);
+}
 }
 
-const search = document.getElementById("search");
+// toggle view
+const normalContent = document.getElementById("normal-content");
+const collageView = document.getElementById("collage-view");
+const mainContainer = document.getElementById("main-container");
+const toggleBtn = document.getElementById("collage-toggle-btn");
+const searchInput = document.getElementById("search");
+
+let isCollageActive = false;
+
+toggleBtn?.addEventListener("click", () => {
+isCollageActive = !isCollageActive;
+searchInput.value = "";
+
+if (isCollageActive) {
+normalContent.style.display = "none";
+collageView.style.display = "block";
+mainContainer.classList.add("collage-expanded");
+toggleBtn.style.color = "var(--text)";
+toggleBtn.style.borderColor = "var(--text)";
+renderCollage();
+} else {
+collageView.style.display = "none";
+normalContent.style.display = "block";
+mainContainer.classList.remove("collage-expanded");
+toggleBtn.style.color = "var(--muted)";
+toggleBtn.style.borderColor = "var(--border)";
+renderPosts(posts);
+}
+});
+
 document.addEventListener("keydown", e => {
 if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() == "k") {
 e.preventDefault();
-search.focus();
+searchInput.focus();
+}
+if (e.key === "Escape" && isCollageActive) {
+toggleBtn.click();
 }
 });
 
@@ -429,6 +653,7 @@ document.getElementById("shortcut").innerText = "Ctrl K";
 
 renderPinnedPost();
 renderPosts(posts);
+renderCollage();
 </script>
 
 </body>
