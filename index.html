@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>onwiki</title>
+<title>ONWIKI</title>
 <meta name="description" content="Notes, projects, experiments and things I've learned.">
 
 <meta property="og:title" content="O.N Track">
@@ -242,7 +242,8 @@ background: var(--bg);
 border: 1px solid var(--border);
 }
 
-.collage-item img {
+.collage-item img,
+.collage-item video {
 width: 100%;
 height: auto;
 display: block;
@@ -251,7 +252,8 @@ transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 @media(max-width: 800px) {
-.collage-item img {
+.collage-item img,
+.collage-item video {
 aspect-ratio: 1 / 1;
 object-fit: cover;
 }
@@ -285,7 +287,9 @@ opacity: 1;
 }
 
 .collage-item:hover img,
-.collage-item.touch-active img {
+.collage-item:hover video,
+.collage-item.touch-active img,
+.collage-item.touch-active video {
 transform: scale(1.03);
 opacity: 0.3;
 }
@@ -393,7 +397,7 @@ padding: 12px 15px;
 </div>
 
 <section class="intro">
-<p>Notes, projects, experiments, and things I've learned.</p>
+<p>Experiences, projects, experiments, and more </p>
 </section>
 
 <!-- normal content -->
@@ -421,7 +425,7 @@ Pinned Post
 </div>
 
 <footer>
-<div>A collection of thoughts and ideas by O.N.</div>
+<div>A collection of moments and thoughts by Oscar</div>
 <div class="footer-links">
 <a href="index.html">Home</a>
 <a href="mailto:oscarxdev@gmail.com">oscarxdev@gmail.com</a>
@@ -470,31 +474,69 @@ image: "images/moa.jpg"
 }
 ];
 
+// collage items sorted from f down to a
 const collageImages = [
-{
-url: "images/about.jpg",
-caption: "About this Journal - Setup snapshot"
-},
-{
-url: "images/surveillance.jpg",
-caption: "Surveillance Tech notes reference"
-},
-{
-url: "images/cyberdeck.png",
-caption: "Cyberdeck build configuration & design"
-},
-{
-url: "images/deamazon.png",
-caption: "DeAmazoning hardware layout"
-},
-{
-url: "images/3p.png",
-caption: "Planet & Population Data Notes"
-},
-{
-url: "images/moa.jpg",
-caption: "Archive field view"
-}
+{ url: "collage/f1.mp4", caption: "archive media f1" },
+
+{ url: "collage/f3.jpg", caption: "archive media f3" },
+{ url: "collage/f4.jpg", caption: "archive media f4" },
+{ url: "collage/f5.jpg", caption: "archive media f5" },
+{ url: "collage/f6.jpg", caption: "archive media f6" },
+{ url: "collage/e1.jpg", caption: "archive media e1" },
+{ url: "collage/e2.jpg", caption: "archive media e2" },
+{ url: "collage/e3.jpg", caption: "archive media e3" },
+{ url: "collage/e4.jpg", caption: "archive media e4" },
+{ url: "collage/e5.jpg", caption: "archive media e5" },
+{ url: "collage/e6.jpg", caption: "archive media e6" },
+{ url: "collage/e7.jpg", caption: "archive media e7" },
+{ url: "collage/e8.jpg", caption: "archive media e8" },
+{ url: "collage/e9.jpg", caption: "archive media e9" },
+{ url: "collage/d1.jpg", caption: "archive media d1" },
+{ url: "collage/d2.jpg", caption: "archive media d2" },
+{ url: "collage/d3.jpg", caption: "archive media d3" },
+{ url: "collage/d4.jpg", caption: "archive media d4" },
+{ url: "collage/d5.jpg", caption: "archive media d5" },
+{ url: "collage/d7.jpg", caption: "archive media d7" },
+{ url: "collage/d8.jpg", caption: "archive media d8" },
+{ url: "collage/d9.jpg", caption: "archive media d9" },
+{ url: "collage/d10.jpg", caption: "archive media d10" },
+{ url: "collage/d11.jpg", caption: "archive media d11" },
+{ url: "collage/d13.jpg", caption: "archive media d13" },
+{ url: "collage/d14.jpg", caption: "archive media d14" },
+{ url: "collage/d16.jpg", caption: "archive media d16" },
+{ url: "collage/d18.jpg", caption: "archive media d18" },
+{ url: "collage/d19.jpg", caption: "archive media d19" },
+{ url: "collage/c1.jpg", caption: "archive media c1" },
+{ url: "collage/c2.jpg", caption: "archive media c2" },
+{ url: "collage/c3.jpg", caption: "archive media c3" },
+{ url: "collage/c4.jpg", caption: "archive media c4" },
+{ url: "collage/c5.jpg", caption: "archive media c5" },
+{ url: "collage/c6.jpg", caption: "archive media c6" },
+{ url: "collage/c7.jpg", caption: "archive media c7" },
+{ url: "collage/c8.jpg", caption: "archive media c8" },
+{ url: "collage/c9.jpg", caption: "archive media c9" },
+{ url: "collage/c10.jpg", caption: "archive media c10" },
+{ url: "collage/b1.jpg", caption: "archive media b1" },
+{ url: "collage/b2.jpg", caption: "archive media b2" },
+{ url: "collage/b3.jpg", caption: "archive media b3" },
+{ url: "collage/b4.jpg", caption: "archive media b4" },
+{ url: "collage/b5.jpg", caption: "archive media b5" },
+{ url: "collage/b6.jpg", caption: "archive media b6" },
+{ url: "collage/b7.jpg", caption: "archive media b7" },
+{ url: "collage/b8.jpg", caption: "archive media b8" },
+{ url: "collage/b9.jpg", caption: "archive media b9" },
+{ url: "collage/b10.jpg", caption: "archive media b10" },
+{ url: "collage/a1.jpg", caption: "archive media a1" },
+{ url: "collage/a2.jpg", caption: "archive media a2" },
+{ url: "collage/a3.jpg", caption: "archive media a3" },
+{ url: "collage/a4.jpg", caption: "archive media a4" },
+{ url: "collage/a5.jpg", caption: "archive media a5" },
+{ url: "collage/a6.jpg", caption: "archive media a6" },
+{ url: "collage/a7.jpg", caption: "archive media a7" },
+{ url: "collage/a8.jpg", caption: "archive media a8" },
+{ url: "collage/a9.jpg", caption: "archive media a9" },
+{ url: "collage/a10.jpg", caption: "archive media a10" },
+{ url: "collage/a11.jpg", caption: "archive media a11" }
 ];
 
 function escapeRegExp(string) {
@@ -560,7 +602,7 @@ const gridContainer = document.getElementById("pinterest-grid");
 if (!gridContainer) return;
 
 if (filteredImages.length === 0) {
-gridContainer.innerHTML = '<div class="no-results">No collage images found matching your search.</div>';
+gridContainer.innerHTML = '<div class="no-results">No collage items found matching your search.</div>';
 return;
 }
 
@@ -571,9 +613,16 @@ const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
 displayCaption = item.caption.replace(regex, '<span class="highlight">$1</span>');
 }
 
+let mediaHtml = "";
+if (item.url.endsWith(".mp4")) {
+mediaHtml = `<video src="${item.url}" autoplay muted loop playsinline></video>`;
+} else {
+mediaHtml = `<img src="${item.url}" alt="${item.caption}" loading="lazy">`;
+}
+
 return `
 <div class="collage-item">
-<img src="${item.url}" alt="${item.caption}" loading="lazy">
+${mediaHtml}
 <div class="collage-overlay">
 <p>${displayCaption}</p>
 </div>
@@ -598,7 +647,7 @@ const query = document.getElementById("search").value.trim();
 const lowerQuery = query.toLowerCase();
 
 if (isCollageActive) {
-const filteredCollage = collageImages.filter(img => img.caption.toLowerCase().includes(lowerQuery));
+const filteredCollage = collageImages.filter(img => img.caption.toLowerCase().includes(lowerQuery) || img.url.toLowerCase().includes(lowerQuery));
 renderCollage(filteredCollage, query);
 } else {
 const filteredPosts = posts.filter(post => {
