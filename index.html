@@ -231,10 +231,6 @@ width: 100%;
 .pinterest-grid { column-count: 2; }
 }
 
-@media(max-width: 500px) {
-.pinterest-grid { column-count: 1; }
-}
-
 .collage-item {
 break-inside: avoid;
 margin-bottom: 16px;
@@ -252,6 +248,13 @@ height: auto;
 display: block;
 border-radius: 16px;
 transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media(max-width: 800px) {
+.collage-item img {
+aspect-ratio: 1 / 1;
+object-fit: cover;
+}
 }
 
 .collage-overlay {
@@ -390,7 +393,7 @@ padding: 12px 15px;
 </div>
 
 <section class="intro">
-<p>Notes, projects, experiences, and things I've learned.</p>
+<p>Notes, projects, experiments, and things I've learned.</p>
 </section>
 
 <!-- normal content -->
