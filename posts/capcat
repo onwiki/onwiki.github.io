@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>onwiki - The Capitalism Catastrophe</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--bg:#000000;
+--text:#ffffff;
+--muted:#888888;
+--border:#202020;
+}
+
+* {
+box-sizing:border-box;
+}
+
+body {
+margin:0;
+background:var(--bg);
+color:var(--text);
+font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+padding-bottom: 80px;
+}
+
+.container {
+max-width:900px;
+margin:auto;
+padding:60px 25px;
+}
+
+.header-section {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 20px;
+margin-bottom: 60px;
+}
+
+.header-title {
+font-size: 42px;
+font-weight: 700;
+letter-spacing: -2px;
+margin: 0;
+color: var(--text);
+text-decoration: none;
+cursor: pointer;
+transition: opacity 0.2s;
+white-space: nowrap;
+}
+
+.header-title:hover {
+opacity: 0.8;
+}
+
+.back {
+color:var(--muted);
+cursor:pointer;
+display:inline-block;
+font-family: "IBM Plex Mono", monospace;
+font-size:14px;
+text-decoration:none;
+white-space: nowrap;
+}
+
+.back:hover {
+color:var(--text);
+}
+
+.post-header {
+margin-bottom:40px;
+}
+
+.post-title {
+font-size:48px;
+letter-spacing:-2px;
+line-height:1.1;
+margin:0 0 15px 0;
+}
+
+.post-meta {
+font-size:14px;
+color:var(--muted);
+font-family: "IBM Plex Mono", monospace;
+margin-bottom:30px;
+}
+
+.divider {
+width:100%;
+height:1px;
+background:var(--border);
+margin-top:20px;
+}
+
+.post-body p,
+.post-body li {
+font-size:18px;
+line-height:1.8;
+color:var(--text);
+}
+
+.post-body img {
+max-width:100%;
+border-radius:14px;
+border: 2px solid #ffffff;
+margin:20px 0 6px 0;
+display: block;
+}
+
+footer {
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 60px;
+z-index: 20;
+background: rgba(0,0,0,.85);
+backdrop-filter: blur(14px);
+border-top:1px solid var(--border);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding: 0 30px;
+color:var(--muted);
+font-size:14px;
+}
+
+.footer-links {
+display:flex;
+gap:20px;
+}
+
+.footer-links a {
+color:var(--muted);
+text-decoration:none;
+transition:color 0.2s;
+}
+
+.footer-links a:hover {
+color:var(--text);
+}
+
+@media(max-width:700px){
+.header-title {
+font-size: 32px;
+}
+.container {
+padding:40px 20px;
+}
+.post-title {
+font-size:36px;
+}
+footer {
+height: auto;
+flex-direction: column;
+gap: 6px;
+align-items: center;
+text-align: center;
+padding: 12px 15px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header-section">
+<a href="../index.html" class="header-title">OnWiki Journal</a>
+<a href="../index.html" class="back">← Back</a>
+</div>
+
+<article class="post-container">
+<div class="post-header">
+<h1 class="post-title">The Capitalism Catastrophe</h1>
+<div class="post-meta">Published on 2024-10-16 at 18:38 UTC+12 by Oscar N.</div>
+<div class="divider"></div>
+</div>
+
+<div class="post-body">
+<p>It’s worth noting that capitalism emerged as a product of the Industrial Revolution, a time that promised <em>prosperity</em> and <em>abundance</em> but delivered widespread <em>exploitation</em>. From its very beginning, capitalism has depended on the exploitation of labor and resources. Factories polluted the air, working hours grew unbearably long, and the divide between rich and poor widened. Industrialism gave birth to modern capitalism, and with it came the chain reaction of destruction that hasn’t stopped since.</p>
+<p>Now, because of capitalism, nearly every person is forced to work, <strong>choicelessly</strong>. Our lives are not simply about survival anymore; it’s about maintaining a system where rent, land-tax (or rates), and mortgages act as our ball and chain. Even after ‘buying’ land, you’re still required to pay a “subscription fee” just for the privilege of living on Earth. This endless payment cycle is the product of a system designed to ensure that the few who own the majority keep getting richer.</p>
+<p><strong><em>We aren’t truly free; we’re economic prisoners.</em></strong></p>
+<p>This is the reason why large corporations continue to grow, regardless of the environmental and ethical harm they cause. They operate under the pretense of success, expanding for the sake of expansion. Think about Google, a company that once had good intentions, and even had the famous mantra: “Don’t be evil.”</p>
+<p>But as their wealth grew, so did their greed.</p>
+<p>Their vast collection of user data, their monopolistic practices, and their more recent compulsive obsession with artificial intelligence – these developments reveal that Google is a corporation that is no longer concerned with ethics or the planet. Their shift away from eco-friendly practices is a clear example of the <em>impossibility of maintaining a large industrial business while claiming to be ‘eco-friendly’.</em> In a capitalist society, the illusion of progress is sold to the masses, while the system undermines any real, sustainable growth.</p>
+<p>Capitalism will not end soon, and here’s why: it is run by capitalists. Crazy, right? Why would a capitalist – someone who benefits from the system – willingly dismantle the very structure that gives them power and wealth? The answer is that there is none. Capitalists, by definition, are not decent people. They do not care for the collective well-being. They see the masses as numbers, profit margins, and market trends. We are statistics in their eyes, not individuals. This is why we remain trapped in this destructive system.</p>
+<p>If we reflect on history, we see patterns emerge. For example, the Gilded Age in the late 19th century – a period marked by industrial expansion, corruption, and extreme inequality. It was a time when the wealthiest individuals like Rockefeller, Carnegie, and Vanderbilt controlled vast monopolies, growing their fortunes at the expense of workers and the environment. Some reforms <em>were</em> introduced, but capitalism adapted rather than disappeared, refining itself into what we see today: corporate power disguised as democracy, environmental collapse hidden behind greenwashing campaigns, and the current wealth inequality that makes the Gilded Age look modest.</p>
+<p>But the lesson here is clear. Capitalism is not designed for the good of the people or the planet. It is designed for profit, and as long as the system persists, so too will the problems it creates: environmental destruction, social inequality, and even more.</p>
+<p>True progress would require dismantling capitalism itself – not reforming it, not tweaking its mechanisms, but replacing it with a system rooted in community, cooperation, and sustainability. Yet, under capitalism, even the <em>idea</em> of an alternative is ridiculed, because in their view, there is no higher good than profit.</p>
+<p>Capitalism must be killed.</p>
+</div>
+</article>
+
+</div>
+
+<footer>
+<div>A collection of thoughts and ideas by O.N.</div>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="mailto:oscarxdev@gmail.com">oscarxdev@gmail.com</a>
+</div>
+</footer>
+
+</body>
+</html>
