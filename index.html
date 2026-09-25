@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -150,7 +151,7 @@ display: flex;
 align-items: center;
 gap: 8px;
 }
-  
+
 .post-item {
 display: flex;
 align-items: center;
@@ -192,7 +193,7 @@ margin-bottom: 6px;
 .post-link:hover {
 opacity: .7;
 }
-  
+
 .highlight {
 background-color: var(--text);
 color: var(--bg);
@@ -217,23 +218,31 @@ padding: 20px 0;
 margin-bottom: 45px;
 }
 
+
+/* ================================
+   VISUAL COLLAGE GRID
+   ================================ */
+
 .pinterest-grid {
-column-count: 4;
-column-gap: 16px;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 16px;
 width: 100%;
 }
 
 @media(max-width: 1100px) {
-.pinterest-grid { column-count: 3; }
+.pinterest-grid {
+grid-template-columns: repeat(3, 1fr);
+}
 }
 
 @media(max-width: 800px) {
-.pinterest-grid { column-count: 2; }
+.pinterest-grid {
+grid-template-columns: repeat(2, 1fr);
+}
 }
 
 .collage-item {
-break-inside: avoid;
-margin-bottom: 16px;
 position: relative;
 border-radius: 16px;
 overflow: hidden;
@@ -294,6 +303,11 @@ transform: scale(1.03);
 opacity: 0.3;
 }
 
+
+/* ================================
+   FOOTER
+   ================================ */
+
 footer {
 position: fixed;
 bottom: 0;
@@ -327,27 +341,39 @@ transition: color 0.2s;
 color: var(--text);
 }
 
+
+/* ================================
+   MOBILE
+   ================================ */
+
 @media(max-width: 700px) {
+
 .header-section {
 flex-direction: column;
 align-items: flex-start;
 gap: 15px;
 }
+
 .header-right {
 width: 100%;
 }
+
 .search-box {
 flex-grow: 1;
 }
+
 .search-box input {
 width: 100%;
 }
+
 .shortcut {
 display: none;
 }
+
 .container {
 padding: 40px 20px;
 }
+
 .post-thumb {
 width: 45px;
 height: 65px;
@@ -358,6 +384,7 @@ border-top-right-radius: 0;
 border-bottom-right-radius: 0;
 border-right: none;
 }
+
 footer {
 height: auto;
 flex-direction: column;
@@ -366,129 +393,257 @@ align-items: center;
 text-align: center;
 padding: 12px 15px;
 }
+
 }
 </style>
 </head>
+
 
 <body>
 
 <div class="container" id="main-container">
 
 <div class="header-section">
-<a href="index.html" class="header-title">OnWiki Journal</a>
+
+<a href="index.html" class="header-title">
+OnWiki Journal
+</a>
+
 <div class="header-right">
-<button id="collage-toggle-btn" class="collage-icon-btn" title="Toggle Visual Collage" aria-label="Toggle Visual Collage">
-<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+<button
+id="collage-toggle-btn"
+class="collage-icon-btn"
+title="Toggle Visual Collage"
+aria-label="Toggle Visual Collage"
+>
+
+<svg width="14" height="14" viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+
 <rect x="3" y="3" width="7" height="7"></rect>
 <rect x="14" y="3" width="7" height="7"></rect>
 <rect x="14" y="14" width="7" height="7"></rect>
 <rect x="3" y="14" width="7" height="7"></rect>
+
 </svg>
+
 </button>
+
+
 <div class="search-box" id="searchBox">
+
 <svg width="15" height="15" viewBox="0 0 24 24">
-<circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
-<line x1="16" y1="16" x2="22" y2="22" stroke="currentColor" stroke-width="2"/>
+
+<circle
+cx="11"
+cy="11"
+r="7"
+stroke="currentColor"
+stroke-width="2"
+fill="none"
+/>
+
+<line
+x1="16"
+y1="16"
+x2="22"
+y2="22"
+stroke="currentColor"
+stroke-width="2"
+/>
+
 </svg>
-<input id="search" placeholder="Search notes..." oninput="handleSearch()">
-<span class="shortcut" id="shortcut">⌘ K</span>
+
+<input
+id="search"
+placeholder="Search notes..."
+oninput="handleSearch()"
+>
+
+<span class="shortcut" id="shortcut">
+⌘ K
+</span>
+
 </div>
+
 </div>
+
 </div>
+
 
 <section class="intro">
-<p>Experiences, projects, experiments, and more </p>
+
+<p>
+Experiences, projects, experiments, and more
+</p>
+
 </section>
 
-<!-- normal content -->
+
+<!-- NORMAL CONTENT -->
+
 <div id="normal-content">
+
 <section id="pinned-section">
+
 <div class="section-heading">
-<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="17" x2="12" y2="22"></line><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-.89 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path></svg>
+
+<svg width="14" height="14"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<line x1="12" y1="17" x2="12" y2="22"></line>
+
+<path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a1 1 0 0 0 0-4H8a1 1 0 0 0 0 4h1v4.76a2 2 0 0 1-.89 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path>
+
+</svg>
+
 Pinned Post
+
 </div>
+
 <div id="pinned-post"></div>
+
 </section>
+
 
 <section id="home">
-<div class="section-heading">Latest Posts</div>
+
+<div class="section-heading">
+Latest Posts
+</div>
+
 <div id="posts"></div>
+
 </section>
+
 </div>
 
-<!-- collage view -->
+
+<!-- COLLAGE VIEW -->
+
 <div id="collage-view" style="display: none;">
-<div class="section-heading">Visual Collage</div>
+
+<div class="section-heading">
+Visual Collage
+</div>
+
 <div id="pinterest-grid" class="pinterest-grid"></div>
+
 </div>
 
 </div>
+
 
 <footer>
-<div>A collection of moments and thoughts by Oscar</div>
-<div class="footer-links">
-<a href="index.html">Home</a>
-<a href="mailto:oscarxdev@gmail.com">oscarxdev@gmail.com</a>
+
+<div>
+A collection of moments and thoughts by Oscar
 </div>
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="mailto:oscarxdev@gmail.com">
+oscarxdev@gmail.com
+</a>
+
+</div>
+
 </footer>
+
 
 <script>
 
+
+/* ================================
+   PINNED POST
+   ================================ */
+
 const pinnedPost = {
+
 file: "posts/about.html",
+
 title: "About this Journal",
+
 date: "2026-08-05",
+
 image: "images/about.jpg"
+
 };
 
+
 const posts = [
+
 {
 file: "posts/surveillance.html",
 title: "The Normalisation of Surveillance Tech",
 date: "2026-08-08",
 image: "images/surveillance.jpg"
 },
+
 {
 file: "posts/deamazon.html",
 title: "DeAmazoning - I hacked my Kindle, Alexa, and soon Firestick",
 date: "2026-01-31",
 image: "images/deamazon.png"
 },
+
 {
 file: "posts/cyberdeck.html",
 title: "Building a Cyberdeck + TailsOS",
 date: "2025-03-26",
 image: "images/cyberdeck.png"
 },
+
 {
 file: "posts/thoughts-on-3p.html",
 title: "Notes on Pollution, the Planet, and the Human Population",
 date: "2024-11-08",
 image: "images/3p.png"
 },
+
 {
 file: "posts/capcat.html",
 title: "The Capitalism Catastrophe",
 date: "2024-10-16 18:38",
 image: "images/capcat.jpeg"
 },
+
 {
 file: "posts/the-VPs.html",
 title: "The VP's (Five P's to Fear Death)",
 date: "2024-10-11 20:44",
 image: "images/moa.jpg"
 }
+
 ];
 
-// Collage images.
-// The first item appears at the top of the page.
-// Images are sorted by the date at the start of each caption.
+
+/* ================================
+   COLLAGE IMAGES
+   ================================ */
+
 const collageImages = [
+
 { url: "collage/f1.mp4", caption: "2026-01-16 - Raglan, New Zealand - Festival Video" },
 { url: "collage/f3.jpg", caption: "2026-01-16 - Raglan, New Zealand - Pineapple Drink" },
 { url: "collage/f4.jpg", caption: "2026-01-16 - Raglan, New Zealand - Festival Photo" },
-{ url: "collage/f5.jpg", caption: "2026-01-16 - Raglan, New Zealand -  Where the ground meets the clouds, I found the angle portays just how low we are compared to the sky" },
+{ url: "collage/f5.jpg", caption: "2026-01-16 - Raglan, New Zealand - Where the ground meets the clouds, I found the angle portays just how low we are compared to the sky" },
 { url: "collage/f6.jpg", caption: "2026-01-16 - Raglan, New Zealand - Festival Photo" },
+
 { url: "collage/e1.jpg", caption: "2024-12-22 - Perth, Australia - A picture of a sunsets' gradient" },
 { url: "collage/e2.jpg", caption: "2024-12-22 - Perth, Australia - The city" },
 { url: "collage/e3.jpg", caption: "2024-12-23 - Perth, Autralia - Another picture of Perths' sunset gradient" },
@@ -498,6 +653,7 @@ const collageImages = [
 { url: "collage/e7.jpg", caption: "2024-12-31 - Perth, Autralia - A new years eve firework" },
 { url: "collage/e8.jpg", caption: "2024-12-31 - Perth, Autralia - A neon carnival in the middle of Perth" },
 { url: "collage/e9.jpg", caption: "2024-12-31 - Perth, Autralia - A lit up structure which I thought looked a bit like a UFO's beam" },
+
 { url: "collage/d1.jpg", caption: "2023-08-31 - Denarau, Fiji - A Fijian resort, typical tourist destination" },
 { url: "collage/d2.jpg", caption: "2025-03-20 - Auckland, New Zealand - The sunset after attending a funeral" },
 { url: "collage/d3.jpg", caption: "2022-09-30 - Sydney, Australia - Jellyfish, also under ultraviolet light" },
@@ -505,7 +661,7 @@ const collageImages = [
 { url: "collage/d5.jpg", caption: "2024-09-24 - New York City, USA - pair of ominous building in New York" },
 { url: "collage/d7.jpg", caption: "2025-03-20 - Auckland, New Zealand - A picture of the cities skyline" },
 { url: "collage/d8.jpg", caption: "2025-04-23 - Auckland, New Zealand - The sky after catching up with an old friend" },
-{ url: "collage/d9.jpg", caption: "2025-06-28 - Gold Coast, Australia - Some futuristicly lit up building, with accent colours bright against the dark sky " },
+{ url: "collage/d9.jpg", caption: "2025-06-28 - Gold Coast, Australia - Some futuristicly lit up building, with accent colours bright against the dark sky" },
 { url: "collage/d10.jpg", caption: "2022-10-03 - Bali, Indonesia - A beach, the picutre taken hazy" },
 { url: "collage/d11.jpg", caption: "2024-04-14 - Raglan, New Zealand - A still moment by some water, half the sky starting to fall asleep" },
 { url: "collage/d13.jpg", caption: "2024-10-08 - Ravello, Italy - A pictue of Italian flowers" },
@@ -513,6 +669,7 @@ const collageImages = [
 { url: "collage/d16.jpg", caption: "2026-05-01 - Auckland, New Zealand - A city being passed in the night" },
 { url: "collage/d18.jpg", caption: "2025-06-27 - Brisbane, Australia - A flight" },
 { url: "collage/d19.jpg", caption: "2025-04-23 - Auckland, New Zealand - UV bumper karts" },
+
 { url: "collage/c1.jpg", caption: "2024-10-23 - Adorigo, Portugal - Rows of vineyards surrounded by the hills" },
 { url: "collage/c2.jpg", caption: "2024-10-08 - Salerno, Italy - The blue water and sky contrasts against the warm colours of the buildings" },
 { url: "collage/c3.jpg", caption: "2024-10-08 - Amalfi Coast, Italy - A bright Italian beach in the sun" },
@@ -520,9 +677,10 @@ const collageImages = [
 { url: "collage/c5.jpg", caption: "2024-10-10 - Rome, Italy - The Colosseum inside" },
 { url: "collage/c6.jpg", caption: "2024-10-14 - Pisa, Italy - The Leaning Tower of Pisa really leaning" },
 { url: "collage/c7.jpg", caption: "2024-10-22 - Vila Nova de Gaia, Portugal - An apocalyptic-ly orange sunset" },
-{ url: "collage/c8.jpg", caption: "2024-10-17 - Milan, Italy - A masterpeice of gothic architecture " },
+{ url: "collage/c8.jpg", caption: "2024-10-17 - Milan, Italy - A masterpeice of gothic architecture" },
 { url: "collage/c9.jpg", caption: "2024-10-23 - Adorigo, Portugal - On the back of a locals boat" },
 { url: "collage/c10.jpg", caption: "2024-10-12 - Manarola, Italy - All the buildings were so colourful" },
+
 { url: "collage/b1.jpg", caption: "2024-09-30 - Paris, France - The Venis de Milo statue in the Louvre" },
 { url: "collage/b2.jpg", caption: "2024-09-30 - Paris, France - I've heard you couldn't take pictures but there was nothing stopping me" },
 { url: "collage/b3.jpg", caption: "2024-09-30 - Paris, France - The brightest macarons I'd ever seen" },
@@ -533,6 +691,7 @@ const collageImages = [
 { url: "collage/b8.jpg", caption: "2024-09-30 - Paris, France - The renowned Louvre pyramid" },
 { url: "collage/b9.jpg", caption: "2024-09-30 - Paris, France - You see and read about it so often but it truly is so impressive in person" },
 { url: "collage/b10.jpg", caption: "2024-10-02 - Sursee, Switzerland - A Swiss cow" },
+
 { url: "collage/a1.jpg", caption: "2024-09-24 - New York City, USA - A building in a very Empirical State" },
 { url: "collage/a2.jpg", caption: "2024-09-23 - Massachusetts, USA - A photo I took of a Harvard arc" },
 { url: "collage/a3.jpg", caption: "2024-09-26 - new York City - Ground Zero, roughly 23 years after the reason it is now called that" },
@@ -544,190 +703,539 @@ const collageImages = [
 { url: "collage/a9.jpg", caption: "2024-09-26 - New York City, USA - A street not known for it's good ethics" },
 { url: "collage/a10.jpg", caption: "2024-09-26 - New York City, USA - The lighst at the top of the MSG stadium" },
 { url: "collage/a11.jpg", caption: "2024-09-26 - New York City, USA - A pop up Ralph Lauren stand" }
+
 ];
 
+
+/* ================================
+   SEARCH HELPERS
+   ================================ */
+
 function escapeRegExp(string) {
-return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+return string.replace(
+/[.*+?^${}()|[\]\\]/g,
+'\\$&'
+);
+
 }
 
+
+/* ================================
+   PINNED POST
+   ================================ */
+
 function renderPinnedPost() {
-const pinnedArea = document.getElementById("pinned-post");
+
+const pinnedArea =
+document.getElementById("pinned-post");
 
 if (!pinnedPost || !pinnedPost.file) {
-document.getElementById("pinned-section").style.display = "none";
+
+document.getElementById("pinned-section")
+.style.display = "none";
+
 return;
+
 }
 
 pinnedArea.innerHTML = `
-<div class="post-item" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">
-<img class="post-thumb" src="${pinnedPost.image}" alt="">
+
+<div
+class="post-item"
+style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;"
+>
+
+<img
+class="post-thumb"
+src="${pinnedPost.image}"
+alt=""
+>
+
 <div class="post-info">
-<a class="post-link" href="${pinnedPost.file}">${pinnedPost.title}</a>
-<div class="post-meta">Published on ${pinnedPost.date} by Oscar N.</div>
+
+<a
+class="post-link"
+href="${pinnedPost.file}"
+>
+${pinnedPost.title}
+</a>
+
+<div class="post-meta">
+Published on ${pinnedPost.date} by Oscar N.
 </div>
+
 </div>
+
+</div>
+
 `;
+
 }
 
+
+/* ================================
+   NORMAL POSTS
+   ================================ */
+
 function renderPosts(items, query = "") {
-const area = document.getElementById("posts");
+
+const area =
+document.getElementById("posts");
+
 area.innerHTML = "";
 
 if (items.length === 0) {
-area.innerHTML = '<div class="no-results">No notes found matching your search.</div>';
+
+area.innerHTML =
+'<div class="no-results">No notes found matching your search.</div>';
+
 return;
+
 }
 
 for (const post of items) {
-let item = document.createElement("div");
+
+let item =
+document.createElement("div");
+
 item.className = "post-item";
 
 let displayTitle = post.title;
 let displayDate = post.date;
 
 if (query.length > 0) {
-const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
-displayTitle = post.title.replace(regex, '<span class="highlight">$1</span>');
-displayDate = post.date.replace(regex, '<span class="highlight">$1</span>');
+
+const regex =
+new RegExp(
+`(${escapeRegExp(query)})`,
+'gi'
+);
+
+displayTitle =
+post.title.replace(
+regex,
+'<span class="highlight">$1</span>'
+);
+
+displayDate =
+post.date.replace(
+regex,
+'<span class="highlight">$1</span>'
+);
+
 }
 
 item.innerHTML = `
-<img class="post-thumb" src="${post.image}" alt="">
+
+<img
+class="post-thumb"
+src="${post.image}"
+alt=""
+>
+
 <div class="post-info">
-<a class="post-link" href="${post.file}">${displayTitle}</a>
-<div class="post-meta">Published on ${displayDate} by Oscar N.</div>
+
+<a
+class="post-link"
+href="${post.file}"
+>
+${displayTitle}
+</a>
+
+<div class="post-meta">
+Published on ${displayDate} by Oscar N.
 </div>
+
+</div>
+
 `;
 
 area.appendChild(item);
-}
+
 }
 
-// Sort collage images by the date at the start of each caption.
-// Newest dates appear first, so the first image is at the top of the page.
-// This does NOT create date categories or sections.
+}
+
+
+/* ================================
+   SORT COLLAGE BY DATE
+   ================================ */
+
 function sortCollageByDate(items) {
+
 return [...items].sort((a, b) => {
-const dateA = a.caption.match(/^\d{4}-\d{2}-\d{2}/)?.[0] || "";
-const dateB = b.caption.match(/^\d{4}-\d{2}-\d{2}/)?.[0] || "";
+
+const dateA =
+a.caption.match(/^\d{4}-\d{2}-\d{2}/)?.[0] || "";
+
+const dateB =
+b.caption.match(/^\d{4}-\d{2}-\d{2}/)?.[0] || "";
+
 return dateB.localeCompare(dateA);
+
 });
+
 }
 
-// render collage
-function renderCollage(filteredImages = collageImages, query = "") {
-const gridContainer = document.getElementById("pinterest-grid");
+
+/* ================================
+   RENDER COLLAGE
+   ================================ */
+
+function renderCollage(
+filteredImages = collageImages,
+query = ""
+) {
+
+const gridContainer =
+document.getElementById("pinterest-grid");
+
 if (!gridContainer) return;
 
+
 if (filteredImages.length === 0) {
-gridContainer.innerHTML = '<div class="no-results">No collage items found matching your search.</div>';
+
+gridContainer.innerHTML =
+'<div class="no-results">No collage items found matching your search.</div>';
+
 return;
+
 }
 
-// Keep the sorted array order from top to bottom.
-const sortedImages = sortCollageByDate(filteredImages);
 
-gridContainer.innerHTML = sortedImages.map(item => {
-let displayCaption = item.caption;
+/*
+IMPORTANT:
+
+The array is sorted BEFORE being placed
+into the CSS grid.
+
+CSS Grid then places them:
+
+1  2  3  4
+5  6  7  8
+9 10 11 12
+
+rather than filling columns vertically.
+*/
+
+const sortedImages =
+sortCollageByDate(filteredImages);
+
+
+gridContainer.innerHTML =
+sortedImages.map(item => {
+
+let displayCaption =
+item.caption;
+
+
 if (query.length > 0) {
-const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
-displayCaption = item.caption.replace(regex, '<span class="highlight">$1</span>');
+
+const regex =
+new RegExp(
+`(${escapeRegExp(query)})`,
+'gi'
+);
+
+displayCaption =
+item.caption.replace(
+regex,
+'<span class="highlight">$1</span>'
+);
+
 }
+
 
 let mediaHtml = "";
-if (item.url.endsWith(".mp4")) {
-mediaHtml = `<video src="${item.url}" autoplay muted loop playsinline></video>`;
+
+
+if (
+item.url.toLowerCase().endsWith(".mp4")
+) {
+
+mediaHtml = `
+
+<video
+src="${item.url}"
+autoplay
+muted
+loop
+playsinline
+></video>
+
+`;
+
 } else {
-mediaHtml = `<img src="${item.url}" alt="${item.caption}" loading="lazy">`;
+
+mediaHtml = `
+
+<img
+src="${item.url}"
+alt="${item.caption}"
+loading="lazy"
+>
+
+`;
+
 }
+
 
 return `
+
 <div class="collage-item">
+
 ${mediaHtml}
+
 <div class="collage-overlay">
-<p>${displayCaption}</p>
+
+<p>
+${displayCaption}
+</p>
+
 </div>
+
 </div>
+
 `;
+
 }).join("");
 
-const items = document.querySelectorAll(".collage-item");
+
+/* Touch behaviour */
+
+const items =
+document.querySelectorAll(".collage-item");
+
+
 items.forEach(item => {
-item.addEventListener("touchstart", function(e) {
-if (!this.classList.contains("touch-active")) {
+
+item.addEventListener(
+"touchstart",
+function(e) {
+
+if (
+!this.classList.contains("touch-active")
+) {
+
 e.preventDefault();
-items.forEach(i => i.classList.remove("touch-active"));
+
+items.forEach(i =>
+i.classList.remove("touch-active")
+);
+
 this.classList.add("touch-active");
+
 }
+
 });
+
 });
+
 }
+
+
+/* ================================
+   SEARCH
+   ================================ */
 
 function handleSearch() {
-const query = document.getElementById("search").value.trim();
-const lowerQuery = query.toLowerCase();
+
+const query =
+document
+.getElementById("search")
+.value
+.trim();
+
+const lowerQuery =
+query.toLowerCase();
+
 
 if (isCollageActive) {
-const filteredCollage = collageImages.filter(img => img.caption.toLowerCase().includes(lowerQuery) || img.url.toLowerCase().includes(lowerQuery));
-renderCollage(filteredCollage, query);
+
+const filteredCollage =
+collageImages.filter(img =>
+
+img.caption
+.toLowerCase()
+.includes(lowerQuery)
+
+||
+
+img.url
+.toLowerCase()
+.includes(lowerQuery)
+
+);
+
+renderCollage(
+filteredCollage,
+query
+);
+
 } else {
-const filteredPosts = posts.filter(post => {
-const matchesTitle = post.title.toLowerCase().includes(lowerQuery);
-const matchesDate = post.date.toLowerCase().includes(lowerQuery);
+
+const filteredPosts =
+posts.filter(post => {
+
+const matchesTitle =
+post.title
+.toLowerCase()
+.includes(lowerQuery);
+
+const matchesDate =
+post.date
+.toLowerCase()
+.includes(lowerQuery);
+
 return matchesTitle || matchesDate;
+
 });
-renderPosts(filteredPosts, query);
-}
+
+renderPosts(
+filteredPosts,
+query
+);
+
 }
 
-// toggle view
-const normalContent = document.getElementById("normal-content");
-const collageView = document.getElementById("collage-view");
-const mainContainer = document.getElementById("main-container");
-const toggleBtn = document.getElementById("collage-toggle-btn");
-const searchInput = document.getElementById("search");
+}
+
+
+/* ================================
+   TOGGLE COLLAGE VIEW
+   ================================ */
+
+const normalContent =
+document.getElementById("normal-content");
+
+const collageView =
+document.getElementById("collage-view");
+
+const mainContainer =
+document.getElementById("main-container");
+
+const toggleBtn =
+document.getElementById("collage-toggle-btn");
+
+const searchInput =
+document.getElementById("search");
 
 let isCollageActive = false;
 
-toggleBtn?.addEventListener("click", () => {
-isCollageActive = !isCollageActive;
+
+toggleBtn?.addEventListener(
+"click",
+() => {
+
+isCollageActive =
+!isCollageActive;
+
 searchInput.value = "";
 
+
 if (isCollageActive) {
-normalContent.style.display = "none";
-collageView.style.display = "block";
-mainContainer.classList.add("collage-expanded");
-toggleBtn.style.color = "var(--text)";
-toggleBtn.style.borderColor = "var(--text)";
+
+normalContent.style.display =
+"none";
+
+collageView.style.display =
+"block";
+
+mainContainer.classList.add(
+"collage-expanded"
+);
+
+toggleBtn.style.color =
+"var(--text)";
+
+toggleBtn.style.borderColor =
+"var(--text)";
+
 renderCollage();
+
 } else {
-collageView.style.display = "none";
-normalContent.style.display = "block";
-mainContainer.classList.remove("collage-expanded");
-toggleBtn.style.color = "var(--muted)";
-toggleBtn.style.borderColor = "var(--border)";
+
+collageView.style.display =
+"none";
+
+normalContent.style.display =
+"block";
+
+mainContainer.classList.remove(
+"collage-expanded"
+);
+
+toggleBtn.style.color =
+"var(--muted)";
+
+toggleBtn.style.borderColor =
+"var(--border)";
+
 renderPosts(posts);
+
 }
+
 });
 
-document.addEventListener("keydown", e => {
-if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() == "k") {
+
+/* ================================
+   KEYBOARD SHORTCUTS
+   ================================ */
+
+document.addEventListener(
+"keydown",
+e => {
+
+if (
+(e.metaKey || e.ctrlKey) &&
+e.key.toLowerCase() == "k"
+) {
+
 e.preventDefault();
+
 searchInput.focus();
+
 }
-if (e.key === "Escape" && isCollageActive) {
+
+
+if (
+e.key === "Escape" &&
+isCollageActive
+) {
+
 toggleBtn.click();
+
 }
+
 });
+
+
+/* ================================
+   PLATFORM SHORTCUT
+   ================================ */
 
 if (!navigator.userAgent.includes("Mac")) {
-document.getElementById("shortcut").innerText = "Ctrl K";
+
+document.getElementById(
+"shortcut"
+).innerText = "Ctrl K";
+
 }
 
+
+/* ================================
+   INITIAL RENDER
+   ================================ */
+
 renderPinnedPost();
+
 renderPosts(posts);
+
 renderCollage();
+
 </script>
 
 </body>
 </html>
+```
