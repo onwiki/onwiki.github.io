@@ -480,7 +480,9 @@ image: "images/moa.jpg"
 }
 ];
 
-// collage items sorted from f down to a
+// Collage images.
+// The first item appears at the top of the page.
+// Images are sorted by the date at the start of each caption.
 const collageImages = [
 { url: "collage/f1.mp4", caption: "2026-01-16 - Raglan, New Zealand - Festival Video" },
 { url: "collage/f3.jpg", caption: "2026-01-16 - Raglan, New Zealand - Pineapple Drink" },
@@ -601,6 +603,17 @@ area.appendChild(item);
 }
 }
 
+// Sort collage images by the date at the start of each caption.
+// Newest dates appear first, so the first image is at the top of the page.
+// This does NOT create date categories or sections.
+function sortCollageByDate(items) {
+return [...items].sort((a, b) => {
+const dateA = a.caption.match(/^\d{4}-\d{2}-\d{2}/)?.[0] || "";
+const dateB = b.caption.match(/^\d{4}-\d{2}-\d{2}/)?.[0] || "";
+return dateB.localeCompare(dateA);
+});
+}
+
 // render collage
 function renderCollage(filteredImages = collageImages, query = "") {
 const gridContainer = document.getElementById("pinterest-grid");
@@ -611,7 +624,10 @@ gridContainer.innerHTML = '<div class="no-results">No collage items found matchi
 return;
 }
 
-gridContainer.innerHTML = filteredImages.map(item => {
+// Keep the sorted array order from top to bottom.
+const sortedImages = sortCollageByDate(filteredImages);
+
+gridContainer.innerHTML = sortedImages.map(item => {
 let displayCaption = item.caption;
 if (query.length > 0) {
 const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
