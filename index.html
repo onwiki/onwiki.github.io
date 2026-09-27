@@ -152,7 +152,7 @@ align-items: center;
 gap: 8px;
 }
 
-/* Expanded individual post cards */
+/* Entire card acts as a clickable link container */
 .post-item {
 display: flex;
 align-items: center;
@@ -162,6 +162,8 @@ padding: 24px;
 background: var(--card-bg);
 border: 1px solid var(--border);
 border-radius: 14px;
+text-decoration: none;
+color: inherit;
 transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
@@ -188,7 +190,7 @@ flex-grow: 1;
 font-size: 24px;
 font-weight: 500;
 color: var(--text);
-text-decoration: none; /* Underline removed here */
+text-decoration: none;
 cursor: pointer;
 letter-spacing: -.5px;
 display: inline-block;
@@ -196,7 +198,7 @@ margin-bottom: 8px;
 transition: opacity 0.2s;
 }
 
-.post-link:hover {
+.post-item:hover .post-link {
 opacity: .7;
 }
 
@@ -386,9 +388,12 @@ align-items: flex-start;
 gap: 15px;
 }
 
+/* Full image display on mobile, no cropping */
 .post-thumb {
 width: 100%;
-height: 150px;
+height: auto;
+max-height: none;
+object-fit: contain;
 }
 
 footer {
@@ -747,8 +752,9 @@ return;
 
 pinnedArea.innerHTML = `
 
-<div
+<a
 class="post-item"
+href="${pinnedPost.file}"
 style="margin-bottom: 0;"
 >
 
@@ -760,12 +766,9 @@ alt=""
 
 <div class="post-info">
 
-<a
-class="post-link"
-href="${pinnedPost.file}"
->
+<span class="post-link">
 ${pinnedPost.title}
-</a>
+</span>
 
 <div class="post-meta">
 Published on ${pinnedPost.date} by Oscar N.
@@ -773,7 +776,7 @@ Published on ${pinnedPost.date} by Oscar N.
 
 </div>
 
-</div>
+</a>
 
 `;
 
@@ -803,9 +806,10 @@ return;
 for (const post of items) {
 
 let item =
-document.createElement("div");
+document.createElement("a");
 
 item.className = "post-item";
+item.href = post.file;
 
 let displayTitle = post.title;
 let displayDate = post.date;
@@ -842,12 +846,9 @@ alt=""
 
 <div class="post-info">
 
-<a
-class="post-link"
-href="${post.file}"
->
+<span class="post-link">
 ${displayTitle}
-</a>
+</span>
 
 <div class="post-meta">
 Published on ${displayDate} by Oscar N.
